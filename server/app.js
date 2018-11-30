@@ -30,16 +30,6 @@
 const express = require('express');
 const app = express();
 
-//declaracao de uma rota (node eh feito pra rotas)
-app.get('/', (request, response, next) => {
-    response.send('hi Novatec');
-})
-app.get('/contato', (request, response, next) => {
-    response.send('email@novatec.com.br');
-})
-app.post('/contato', (request, response, next) => {
-    response.status(201) //201 === criado
-    response.send('email@novatec.com.br');
-})
+app.use(require('./router'))
 
 app.listen(3000);
