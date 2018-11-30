@@ -35,5 +35,4 @@ app.use(require('./router'))
 app.use(controller.notFound)
 app.use(controller.errorHandler)
 
-
-app.listen(3000);
+module.exports = app;
