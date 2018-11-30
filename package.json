@@ -2,8 +2,9 @@
   "name": "curso-node-will",
   "version": "1.0.0",
   "description": "",
-  "main": "hello.js",
+  "main": "app.js",
   "scripts": {
+    "start": "nodemon server/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -11,5 +12,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.7"
   }
 }
