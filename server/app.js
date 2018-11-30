@@ -29,19 +29,11 @@
 
 const express = require('express');
 const app = express();
+const controller = require('./controller/AppController')
 
 app.use(require('./router'))
-app.use((request, response, next) => {
-    let err = new Error('não achei');
-    err.status = 404;
-    next(err);
-})
-app.use((err, request, response, next) => {
-    console.log(err.stack);
-
-    response.status(err.status || 500);
-    response.json({ err: err.message });
-})
+app.use(controller.notFound)
+app.use(controller.errorHandler)
 
 
 app.listen(3000);
