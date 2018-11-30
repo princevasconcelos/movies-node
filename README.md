@@ -9,5 +9,7 @@ npm install --save-dev nodemon
 **nodemon(atualizacao automatica) serve para subir o servidor e restarta o servidor automaticamente para mim.**
 
 <!--  Lógica até agora
-app -> router -> controller diferente para cada rota 
+1) app -> router -> controller diferente para cada rota 
+
+2) app -> router -> MovieController -> RepositoryController (mock)
 -->

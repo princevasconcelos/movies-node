@@ -1,9 +1,10 @@
-const repository = requre('../repository/MovieRepository.js')
+const repository = require('../repository/MovieRepository.js')
 
 const MovieController = {
     list(request, response, next) {
         let query = {};
         repository.list(query, (err, data) => {
+            if (err) return next(err)
             response.json(data);
         });
     },
