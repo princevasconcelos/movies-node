@@ -6,4 +6,8 @@ curl -X POST http://localhost:3000/contato
 
 npm install --save-dev nodemon
 
-**nodemon(atualizacao automatica) serve para subir o servidor, mas ele restarta o servidor automaticamente para mim.**
+**nodemon(atualizacao automatica) serve para subir o servidor e restarta o servidor automaticamente para mim.**
+
+<!--  Lógica até agora
+app -> router -> controller diferente para cada rota 
+-->
