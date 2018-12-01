@@ -11,7 +11,16 @@ const MovieController = {
         });
     },
     byId(request, response, next) {
+        let id = request.params.id
+        repository.byId(id, (err, data) => {
+            if (!data) {
+                let err = new Error('Movie not found')
+                err.status = 404
+                return next(err)
+            }
 
+            response.json(data)
+        })
     },
     create(request, response, next) {
 
