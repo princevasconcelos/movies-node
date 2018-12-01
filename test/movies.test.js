@@ -1,12 +1,29 @@
+const db = require('../server/config/mongo')
+
 describe('CRUD movies tests', () => {
-    let id = '5c0283e800151bc73b727677'
+    let id
+    let expected
+    let movie = { title: 'Movie for test' }
+
+    beforeEach(done => {
+        
+        db.collection('movies').insert(movie, (err, data) => {
+            id = data._id.toString()
+            expected = { ...movie, _id: id }
+            done() //avisa que esse before each e sincrono e ja pode fazer outra coisa
+        })
+    })
+
+    afterEach(done => {
+        db.collection('movies').remove({}, done)
+    })
     
     it('GET /api/movies should list all', () => {
         return request
             .get('/api/movies')
             .then(response => {
                 assert.ok(response.body.items)
-                assert.ok(response.body.items.length > 1)
+                assert.ok(response.body.items.length === 1)
                 assert.ok(response.body.total)
                 assert.equal(response.status, 200)
             })
@@ -16,9 +33,10 @@ describe('CRUD movies tests', () => {
         return request
             .get(`/api/movies/${id}`)
             .then(response => {
+                assert.deepEqual(response.body, expected)
                 assert.ok(response.body)
                 assert.equal(response.status, 200)
-                assert.equal('Star wars 5', response.body.title)
+                assert.equal('Movie for test', response.body.title)
             })
     })
 
