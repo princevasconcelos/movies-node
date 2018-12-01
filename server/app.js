@@ -27,12 +27,24 @@
 // POST /produto - cria
 // PUT /produto/:id - atualiza
 
-const express = require('express');
-const app = express();
-const controller = require('./controller/AppController')
+// OUTRAS OPÇÕES
+// - Hapi.js
+// - Koa
+// - Restify.js (somente API)
 
-app.use(require('./router'))
-app.use(controller.notFound)
-app.use(controller.errorHandler)
+const express = require('express');
+const bodyParser = require('body-parser');
+const app = express();
+const controller = require('./controller/AppController');
+
+//essa ordem eh importante. Usar bodyParser antes dos controllers
+//cada use é um middleware
+//a ideia do middleware é tratar a requisicao em varios pedaços
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+app.use(require('./router'));
+app.use(controller.notFound);
+app.use(controller.errorHandler);
 
 module.exports = app;

@@ -3,6 +3,8 @@ const repository = require('../repository/MovieRepository.js')
 const MovieController = {
     list(request, response, next) {
         let query = {};
+        if(request.query.name) //filtro -> /?name=Hobbit
+            query = { name: new RegExp(request.query.name, 'i') } // i === insensitive
         repository.list(query, (err, data) => {
             if (err) return next(err)
             response.json(data);

@@ -7,6 +7,10 @@ const MovieRepository = {
             { title: 'Vingadores' },
             { title: 'Máquina Mortífera' },
         ]
+
+        if(query.name)
+            data = data.filter(i => query.name.test(i.title))
+
         callback(null, data)
     },
     byId() {
