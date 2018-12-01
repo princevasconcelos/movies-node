@@ -13,3 +13,42 @@ npm install --save-dev nodemon
 
 2) app -> router -> MovieController -> RepositoryController (mock)
 -->
+
+npm install --save body-parser
+
+brew install mongodb
+sudo !!
+sudo mkdir -p /data/db
+whoami
+sudo !!
+sudo chown -R joaquim:staff /data/db
+mongod
+
+**mongodb não consegue resolver todos os casos, em alguns casos eh bom o SQL**
+
+**REPLICASET: mongodb precisa ter no minimo 3 instancias(1 master e 2 slaves). O node so escreve na master mas pode ler das 3**
+
+heroko pode subir a aplicacao de graca
+mongo pode fica de graca no mLAB pq o mongo comprou o mLab
+
+db.movies.insert({ title: 'Caca fantasmas', releaseDate: new Date() })
+db.movies.findOne()
+db.movies.find({ title: 'Star Wars' })
+db.movies.count()
+db.movies.distinct('title')
+db.movies.find({}, { _id: false })
+db.movies.find({}, { _id: false, title: 1 })
+db.movies.count({}, { _id: false, title: 1 })
+db.movies.find({ releaseDate: {$gte: new Date(2019, 0 ,1)} })
+db.movies.find({ title: /^s/i }, { _id: 0, title: 1 }) //começa com a letra S, i === case insensitive
+db.movies.find({ title: /[0-9]$/i }, { _id: 0, title: 1 }) //contem numeros
+db.movies.update({ title: /star wars/i }, {$set: { studio: 'Disney' }, { multi: true }}) //multi roda pra todos os registros encontrados
+
+//quando usa o update sem nada ele troca tudo pelo que eh mandado, pra inserir/trocar uma parte tem de usar o $set
+
+db.movies.update({ title: 'Capitao Marvel' }, { $set: { studio: 'Marvel'}}, { upsert: true }) //atualiza ou cria se nao encontrar o registro
+
+find(where, filter)
+
+npm install --save mongojs
+npm install --save-dev mocha istanbul supertest
