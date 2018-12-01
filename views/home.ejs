@@ -7,6 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-    <h1><%= serverRender %></h1>
+    <h1><%= title %></h1>
+    <ul>
+        <% items.forEach(function(item) { %>
+            <li><%= item.title %> - <%= item.releaseDate %> </li>
+        <% }) %>
+    </ul>
 </body>
 </html>
