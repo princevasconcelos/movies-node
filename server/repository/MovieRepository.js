@@ -4,6 +4,9 @@ const MovieRepository = {
     list(query, callback) {
         db.collection('movies').find(query, callback)
     },
+    count(query, callback) {
+        db.collection('movies').count(query, callback)
+    },
     byId(id, callback) {
         //transformar a string q vem em um obj id
         let query = { _id: db.ObjectId(id) }
