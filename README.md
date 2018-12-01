@@ -72,3 +72,5 @@ silence is gold <3
 
 //redis eh um cache de chave/valor
 //TTL - time to live (cada chave tem um tempo de vida)
+
+npm i --save redis

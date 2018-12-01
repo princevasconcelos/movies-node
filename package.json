@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start-prod": "forever start server/bin/www", 
+    "start-prod": "forever start server/bin/www",
     "start-dev": "nodemon server/bin/www.js",
     "test": "export NODE_ENV=test&& mocha test/* --exit"
   },
@@ -15,7 +15,8 @@
     "bluebird": "^3.5.3",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
-    "mongojs": "^2.6.0"
+    "mongojs": "^2.6.0",
+    "redis": "^2.8.0"
   },
   "devDependencies": {
     "istanbul": "^0.4.5",

@@ -21,7 +21,6 @@ const MovieController = {
         let query = {};
         if(request.query.title) //filtro -> /?title=Hobbit
             query = { title: new RegExp(request.query.title, 'i') } // i === insensitive
-
         service.list(query)
             .then(datas => {
                 response.json({
