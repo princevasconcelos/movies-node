@@ -9,14 +9,16 @@ const MovieRepository = {
         let query = { _id: db.ObjectId(id) }
         db.collection('movies').findOne(query, callback)
     },
-    create() {
-        
+    create(body, callback) {
+        db.collection('movies').insert(body, callback)
     },
-    update() {
-
+    update(id, body, callback) {
+        let query = { _id: db.ObjectId(id) }
+        db.collection('movies').update(query, { $set: body }, callback)
     },
-    delete() {
-
+    delete(id, callback) {
+        let query = { _id: db.ObjectId(id) }
+        db.collection('movies').remove(query, callback)
     }
 };
 

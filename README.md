@@ -52,3 +52,5 @@ find(where, filter)
 
 npm install --save mongojs
 npm install --save-dev mocha istanbul supertest
+
+curl -X POST -d '{ "title": "Homem de Ferro"}' -H 'content-type: application/json' http://localhost:3000/api/movies

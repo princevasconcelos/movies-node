@@ -23,13 +23,26 @@ const MovieController = {
         })
     },
     create(request, response, next) {
-
+        let body = request.body
+        repository.create(body, (err, data) => {
+            response.status(201).json(data)
+        })
     },
     update(request, response, next) {
+        let id = request.params.id
+        let body = request.body
 
+        delete body._id //boa pratica: seguranca pro cara n trocar o id no update
+
+        repository.update(id, body, (err, data) => {
+            response.json(data)
+        })
     },
     delete(request, response, next) {
-
+        let id = request.params.id
+        repository.delete(id, (err, data) => {
+            response.status(204).send('')
+        })
     }
 }
 
