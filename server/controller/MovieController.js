@@ -1,4 +1,9 @@
 const bluebird = require('bluebird')
+/* BLUEBIRD
+1) adicionar wrapper no require
+2) mudar nome dos metodos para nomeAsync
+3) trocar por .then .catch
+*/
 const repository = bluebird.promisifyAll(require('../repository/MovieRepository.js'))
 
 function notFound(data) {
@@ -35,8 +40,7 @@ const MovieController = {
     },
     create(request, response, next) {
         repository.createAsync(request.body)
-            .then(notFound)
-            .then(data => response.json(data))
+            .then(data => response.status(201).json(data))
             .catch(next)
     },
     update(request, response, next) {
