@@ -63,3 +63,12 @@ npm install --save bluebird
 
 
 silence is gold <3
+
+//service eh uma camada entre o controle e o repository
+//service eh uma camada de mais logica
+
+
+//nginx eh um proxy pro node
+
+//redis eh um cache de chave/valor
+//TTL - time to live (cada chave tem um tempo de vida)

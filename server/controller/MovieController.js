@@ -5,6 +5,7 @@ const bluebird = require('bluebird')
 3) trocar por .then .catch
 */
 const repository = bluebird.promisifyAll(require('../repository/MovieRepository.js'))
+const service = require('../service/MovieService')
 
 function notFound(data) {
     if(!data) {
@@ -21,10 +22,7 @@ const MovieController = {
         if(request.query.title) //filtro -> /?title=Hobbit
             query = { title: new RegExp(request.query.title, 'i') } // i === insensitive
 
-        Promise.all([
-            repository.listAsync(query),
-            repository.countAsync(query)
-        ])
+        service.list(query)
             .then(datas => {
                 response.json({
                     items: datas[0],
