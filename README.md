@@ -54,3 +54,7 @@ npm install --save mongojs
 npm install --save-dev mocha istanbul supertest
 
 curl -X POST -d '{ "title": "Homem de Ferro"}' -H 'content-type: application/json' http://localhost:3000/api/movies
+
+curl -X DELETE http://localhost:3000/api/movies/5c0283cd00151bc73b727676
+
+pkill 542324 //matar processo

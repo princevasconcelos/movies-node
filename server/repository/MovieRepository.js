@@ -16,6 +16,10 @@ const MovieRepository = {
         let query = { _id: db.ObjectId(id) }
         db.collection('movies').update(query, { $set: body }, callback)
     },
+    patch(id, body, callback) {
+        let query = { _id: db.ObjectId(id) }
+        db.collection('movies').update(query, { $set: body }, callback)
+    },
     delete(id, callback) {
         let query = { _id: db.ObjectId(id) }
         db.collection('movies').remove(query, callback)

@@ -38,6 +38,16 @@ const MovieController = {
             response.json(data)
         })
     },
+    patch(request, response, next) {
+        let id = request.params.id
+        let body = request.body
+
+        delete body._id //boa pratica: seguranca pro cara n trocar o id no update
+
+        repository.patch(id, body, (err, data) => {
+            response.json(data)
+        })
+    },
     delete(request, response, next) {
         let id = request.params.id
         repository.delete(id, (err, data) => {

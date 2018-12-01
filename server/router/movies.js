@@ -15,6 +15,7 @@ router.get('/', controller.list);
 router.get('/:id', isValidId, controller.byId);
 router.post('/', controller.create);
 router.put('/:id', isValidId, controller.update);
+router.patch('/:id', isValidId, controller.patch);
 router.delete('/:id', isValidId, controller.delete);
 
 module.exports = router;
