@@ -60,3 +60,6 @@ curl -X DELETE http://localhost:3000/api/movies/5c0283cd00151bc73b727676
 pkill 542324 //matar processo
 
 npm install --save bluebird
+
+
+silence is gold <3

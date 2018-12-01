@@ -1,5 +1,11 @@
 const mongojs = require('mongojs')
-const db = mongojs('localhost:27017/cinemark')
+
+let config = 'localhost:27017/cinemark'
+
+if (process.env.NODE_ENV === 'test')
+    config = 'localhost:27017/cinemark-test'
+
+const db = mongojs(config)
 
 db.on('error', err => {
     console.log('caiuu', err)
