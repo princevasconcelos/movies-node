@@ -74,3 +74,7 @@ silence is gold <3
 //TTL - time to live (cada chave tem um tempo de vida)
 
 npm i --save redis
+
+npm i --save ejs
+
+//no console do node, digitar rs enter ele reseta o serviço

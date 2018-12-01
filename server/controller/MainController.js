@@ -4,7 +4,7 @@
 //objeto comeca com letra maiuscula
 const MainController = {
     home(request, response, next) {
-        response.send('Bem vindo a página inicial');
+        response.render('home', {serverRender: 'Novatec 2018'});
     },
     contact(request, response, next) {
         response.send('Página de contato');

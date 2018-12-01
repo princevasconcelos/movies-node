@@ -37,6 +37,8 @@ const bodyParser = require('body-parser');
 const app = express();
 const controller = require('./controller/AppController');
 
+app.set('view engine', 'ejs')
+
 //essa ordem eh importante. Usar bodyParser antes dos controllers
 //cada use é um middleware
 //a ideia do middleware é tratar a requisicao em varios pedaços
